@@ -1,185 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Login & Main Site</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #222222;
-      --card: #f2f2f2;
-    }
-    .dark {
-      --bg: #0d0d0d;
-      --text: #eeeeee;
-      --card: #1a1a1a;
-    }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: 0.3s;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: var(--card);
-    }
-    .toggle-btn {
-      padding: 8px 16px;
-      background: var(--text);
-      color: var(--bg);
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    .card {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      margin-top: 0;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVK Portfolio – Sunset Galaxy</title>
+
+<!-- ✅ Jockerman Fallback Font (Similar Style) -->
+<link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        scroll-behavior:smooth;
+        font-family: "Jokerman", "Rampart One", cursive;
     }
 
-    /* Login Page */
-    #login-page {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover;
-    }
-    .login-box {
-      background: rgba(0,0,0,0.6);
-      padding: 30px;
-      border-radius: 12px;
-      width: 300px;
-      color: #fff;
-    }
-    .login-box input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 6px;
-    }
-    .login-box button {
-      width: 100%;
-      padding: 10px;
-      background: #00d4ff;
-      border: none;
-      color: #000;
-      cursor: pointer;
-      border-radius: 6px;
+    /* ✅ SUNSET THEME FOR WHOLE PAGE */
+    body{
+        color:white;
+        overflow-x:hidden;
+        background:linear-gradient(
+            180deg,
+            #ff9a3c 0%,
+            #ff6a49 20%,
+            #ff4c65 40%,
+            #d43f84 60%,
+            #5c3c92 80%,
+            #1b1b3a 100%
+        );
+        background-attachment: fixed;
     }
 
-    /* Skill dropdown */
-    .skill-content {
-      display: none;
-      padding: 10px;
-      background: var(--card);
-      margin-top: 10px;
-      border-radius: 10px;
+    /* ✅ NAVBAR */
+    nav{
+        width:100%;
+        padding:20px 40px;
+        position:fixed;
+        top:0;
+        background:rgba(0,0,0,0.3);
+        backdrop-filter:blur(8px);
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        z-index:10;
+        border-bottom:2px solid rgba(255,255,255,0.4);
     }
-    .skill-btn {
-      background: #007bff;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+
+    nav a{
+        color:white;
+        text-decoration:none;
+        font-size:16px;
+        margin:0 12px;
+        transition:0.3s;
     }
-  </style>
+    nav a:hover{
+        color:#ffe66d;
+        text-shadow:0 0 10px #ffe66d;
+    }
+
+    /* ✅ SECTIONS */
+    section{
+        padding:120px 7%;
+    }
+
+    #home{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        text-align:center;
+        padding:0 20px;
+    }
+
+    #home h1{
+        font-size:38px;
+        text-shadow:0 0 15px #ffe66d;
+        margin-bottom:20px;
+    }
+
+    h2{
+        font-size:34px;
+        color:#ffe66d;
+        margin-bottom:25px;
+        text-shadow:0 0 12px #ffffff;
+    }
+
+    /* ✅ GALAXY BOXES */
+    .content-box{
+        width:75%;
+        padding:25px;
+        border-radius:20px;
+        font-size:20px;
+        line-height:32px;
+
+        background: radial-gradient(circle at top left, 
+            #2b1055, #7597de, #3a0ca3, #000020);
+        background-size: cover;
+
+        border:3px solid #ffe66d;
+        box-shadow:0 0 25px rgba(255,230,109,0.8);
+        transition:0.4s;
+        color:#f5f5f5;
+    }
+
+    /* ✅ Hover Highlight */
+    .content-box:hover{
+        transform:scale(1.03);
+        box-shadow:0 0 40px #ffe66d;
+    }
+
+    /* ✅ LEFT & RIGHT Alternate Alignment */
+    .left{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+    .right{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-end;
+        text-align:right;
+    }
+</style>
 </head>
+
 <body>
 
-  <!-- LOGIN PAGE -->
-  <div id="login-page">
-    <div class="login-box">
-      <h2>Login</h2>
-      <input type="text" id="login-id" placeholder="Enter ID">
-      <input type="password" id="login-pass" placeholder="Enter Password">
-      <button onclick="checkLogin()">Login</button>
-      <p id="error-msg" style="color:red;"></p>
+<!-- ✅ NAVBAR -->
+<nav>
+    <h2 style="font-size:22px;">CVK</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
     </div>
-  </div>
+</nav>
 
-  <!-- MAIN PORTFOLIO PAGE -->
-  <div id="main-page" style="display:none;">
-    <header>
-      <h1>Portfolio</h1>
-      <button class="toggle-btn" onclick="toggleMode()">Toggle Dark/Light</button>
-    </header>
+<!-- ✅ HOME -->
+<section id="home">
+    <h1>WELCOME CHANDRA VAMSI KRISHNA</h1>
+    <p style="font-size:14px; color:#ffe66d;">
+        Cybersecurity • ECE • Forensics • Networking
+    </p>
+</section>
 
-    <div class="container">
-
-      <div class="card">
-        <h2>About Me</h2>
-        <p><strong>Name:</strong> Chandu Vamsi Krishna</p>
-        <p>Cybersecurity & Blockchain Specialist | ECE Student</p>
-      </div>
-
-      <div class="card">
-        <h2>Skills</h2>
-        <button class="skill-btn" onclick="toggleSkill()">Show / Hide Skills</button>
-        <div class="skill-content" id="skill-box">
-          <ul>
-            <li>Cybersecurity</li>
-            <li>Blockchain</li>
-            <li>Web Security</li>
-            <li>Python, JavaScript</li>
-            <li>Networking & OSINT</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Experience</h2>
-        <p>Add your experience details here based on your resume.</p>
-      </div>
-
-      <div class="card">
-        <h2>Projects</h2>
-        <p>Add project details here.</p>
-      </div>
-
+<!-- ✅ PROFILE -->
+<section id="profile" class="left">
+    <h2>PROFILE</h2>
+    <div class="content-box">
+        Electronics and Communication Engineering student specializing in Cybersecurity.
+        Skilled in network security, cryptography, digital forensics, and secure coding.
+        Experienced with Wireshark, Autopsy, and Cisco NetAcad.
+        Passionate about cyber defense and threat analysis.
     </div>
-  </div>
+</section>
 
-<script>
-  function toggleMode() {
-    document.body.classList.toggle("dark");
-  }
+<!-- ✅ SKILLS -->
+<section id="skills" class="right">
+    <h2>SKILLS</h2>
+    <div class="content-box">
+        • Network Security<br>
+        • Cryptography<br>
+        • Communication Skills<br>
+        • Type Writing Certified<br><br>
+        <b>Programming:</b> C, C++, Python<br>
+        <b>Tools:</b> Wireshark, Autopsy, Cisco NetAcad<br>
+        <b>Languages:</b> English, Telugu
+    </div>
+</section>
 
-  function toggleSkill() {
-    let box = document.getElementById("skill-box");
-    box.style.display = box.style.display === "block" ? "none" : "block";
-  }
+<!-- ✅ PROJECTS -->
+<section id="projects" class="left">
+    <h2>PROJECTS</h2>
+    <div class="content-box">
+        <b>RFID-Based Attendance System</b><br><br>
+        • Automated attendance using RFID cards<br>
+        • Arduino-based RFID reader module<br>
+        • Secure attendance database<br>
+        • Prevents proxy attendance with unique IDs
+    </div>
+</section>
 
-  function checkLogin() {
-    let id = document.getElementById("login-id").value;
-    let pass = document.getElementById("login-pass").value;
-    if(id === "2200040211" && pass === "211"){
-      document.getElementById("login-page").style.display = "none";
-      document.getElementById("main-page").style.display = "block";
-    } else {
-      document.getElementById("error-msg").innerText = "Invalid ID or Password";
-    }
-  }
-</script>
+<!-- ✅ CERTIFICATIONS -->
+<section id="certifications" class="right">
+    <h2>CERTIFICATIONS</h2>
+    <div class="content-box">
+        • Blockchain Fundamentals – Chainlink<br>
+        • Embedded Systems & IoT – Tessolve<br>
+        • IIOT Programming & Automation – Tessolve
+    </div>
+</section>
+
+<!-- ✅ EDUCATION -->
+<section id="education" class="left">
+    <h2>EDUCATION</h2>
+    <div class="content-box">
+        <b>B.Tech ECE (Cybersecurity)</b><br>
+        KL University (2022–2026)
+    </div>
+</section>
+
+<!-- ✅ CONTACT -->
+<section id="contact" class="right">
+    <h2>CONTACT</h2>
+    <div class="content-box">
+        <b>Email:</b> marakachandravam­sikrishna@gmail.com<br>
+        <b>Phone:</b> +91 8247203853<br>
+        <b>Location:</b> Guntur, India
+    </div>
+</section>
 
 </body>
 </html>
+
+
+
